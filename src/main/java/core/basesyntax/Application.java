@@ -3,17 +3,13 @@ package core.basesyntax;
 import java.util.Arrays;
 
 public class Application {
+    private static final Lottery lottery = new Lottery();
+    private static final Ball [] balls = new Ball[3];
 
     public static void main(String[] args) {
-        ColorSupplier colorSupplier = new ColorSupplier();
-        Lottery lottery = new Lottery();
-        Ball ball = new Ball(colorSupplier.getRandomColor(),
-                lottery.getRandomBall());
-        Ball ball2 = new Ball(colorSupplier.getRandomColor(),
-                lottery.getRandomBall());
-        Ball ball3 = new Ball(colorSupplier.getRandomColor(),
-                lottery.getRandomBall());
-        Ball [] balls = {ball, ball2, ball3};
+        for (int i = 0; i < balls.length; i++) {
+            balls[i] = lottery.getRandomBall();
+        }
         System.out.println(Arrays.toString(balls));
 
     }
